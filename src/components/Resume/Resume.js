@@ -33,9 +33,13 @@ const Resume = forwardRef((props, ref) => {
   const getFormattedDate = (value) => {
     if (!value) return "";
     const date = new Date(value);
-
-    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  
+    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Adding zero-padding to the month
+    const year = date.getFullYear();
+  
+    return `${month}/${year}`;
   };
+  
 
   const sectionDiv = {
     [sections.workExp]: (
